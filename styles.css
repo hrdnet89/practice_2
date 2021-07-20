@@ -1,0 +1,122 @@
+/*globa */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 2.6rem;
+}
+
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 4.8rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: normal;
+}
+
+h4,
+h5 {
+  font-size: 2.8rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+button {
+  padding: 2rem 6rem;
+  background: #4c6e97;
+  border: none;
+  color: white; /* 버튼 안 텍스트 색 바꾸기*/
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* Nav Section with Hero */
+.main-head {
+  background: #131c27; /* background color*/
+  color: white; /*h1 밖에 적용되지 않는다 이유는 a 링크기 걸려 있어서.. -> 태그 속성 자체를 고쳐줘야 하겠다.*/
+}
+
+nav {
+  display: flex; /* h1 과 ul 태그가 적용 */
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+  min-height: 10vh;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  /*flex-item 요소들이 강제로 한줄에 배치되게 할 것인지 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것이지 결정하는 속성.
+  	No wrap = 기본 속성으로 벗어남
+  	Wrap = 한 줄로 늘어섬
+  	Wrap-reverse = 한줄로 늘어선 아이템들 순서 뒤바뀜.
+   */
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none; /* 리스트 스타일 제거 */
+}
+
+#logo {
+  flex: 2 1 40rem; /* flex 사이즈 정해주는 것으로 h1 의 사이즈를 정해 줌*/
+  font-family: "Pattaya", sans-serif; /* font 다운 */
+  font-weight: 400;
+}
+
+.hero {
+  min-height: 90vh;
+  background-image: linear-gradient(rgba(105, 87, 87, 0.5), transparent),
+    url("travel.jpeg"); /* linear-graident -> 색을 상하 조정 (위, 아래) */
+  background-repeat: none; /* 사진 크기가 너머가면 연속으로 붙여서 보여주는 기능 끄기 */
+  background-size: cover; /* 사진 크기  */
+  background-position: center;
+  color: white;
+  /*컬러는 박스형은 제외 -> 버튼은 박스형 이라 따롤 지정해야 한다. 그래서 div > button 을 한다 구분하기 쉽게*/
+  display: flex;
+  flex-direction: column; /* h2 h3 버튼 세가지 아이템이 세로 row로 정렬 -> 가로 정렬 */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 텍스트 전체를 중앙으로 옮겨주자~~*/
+}
+
+.hero h3 {
+  padding: 5rem;
+}
+
+@media screen and (max-width: 932px) {
+  html {
+    font-size: 45%;
+  }
+  nav {
+    text-align: center;
+  }
+  #logo {
+    padding: 2rem;
+  }
+}
