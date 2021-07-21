@@ -1,0 +1,396 @@
+/* Global Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* width 선언 + 좌 우 50px padding + box-sizing: border-box 선언 시
+    - 내가 padding을 줘도 내 총합 박스 사이즈 늘리지 마. */
+}
+html {
+  font-size: 62.5%; /* 16px * 062.5 = 10pxl 10진수 계삲편하게 하기 위해서  */
+}
+
+body {
+  font-family: "Poppins", sans-serif; /* 구글폰트에서 추가 */
+}
+
+h1 {
+  font-size: 2.6rem; /* 10픽셀 * 2.6 = 26픽셀 */
+}
+li,
+button,
+label,
+input,
+p {
+  font-size: 2rem; /* 20픽셀 */
+}
+h2 {
+  font-size: 4.8rem; /* 48픽셀 */
+}
+h3 {
+  font-size: 3rem; /* 30픽셀*/
+  font-weight: normal; /* 폰트 굵기 체 */
+}
+h4,
+h5 {
+  font-size: 2.8rem; /* 28픽셀*/
+}
+a {
+  color: white; 
+  text-decoration: none;
+    /* 링크 퍼랜색 없애기 
+    <a href= “http://google.com” target = “_self”> Hello </a>
+  # 기존 탭에서 창이 열림
+  <a href= “http://google.com” target = “_blank”> Hello </a>
+  # 새 탭에서 링크가 열림
+    */
+}
+button {
+  padding: 2rem 6rem;
+  background: #4c6e97;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: background 0.5s ease-in-out;
+  /* 선택이 되면... 백그라운드 칼러에서 transition -> :hover 로 */
+  /* background 0.5s ease-in-out 2s (delay) */ 
+  
+}
+
+button:hover {
+  background: #27394e;
+} 
+
+/* Nav Section With HERO */
+/* 순서대로 헤더부터 시작 */
+/* 크게 헤더의 색상과 텍스트 색상만 지정 */
+
+.main-head {
+  background: #131c27;
+  color: white;
+  /* 내용물 색상 적용 h1 밖에 적용되지 않는다 이유는 ul 안에 속해 있는 새로운 태그 -> 태그 속성 자체를 고쳐줘야 하겠다.*/
+  position: sticky;
+  /*sticky 와 fixed 의 차이 ??? */
+  top: 0px;
+  z-index: 3;
+}
+nav {
+  display: flex; /* h1 과 ul 태그가 적용 */
+  width: 90%;
+  margin: auto;
+  padding: 2rem;
+  min-height: 10vh; /* 최소 높이 지정  */
+  align-items: center;
+  flex-wrap: wrap;
+  /*flex-item 요소들이 강제로 한줄에 배치되게 할 것인지 또는 가능한 영역 내에서 벗어나지 않고 여러행으로 나누어 표현 할 것이지 결정하는 속성.
+     No wrap = 기본 속성으로 벗어남
+     Wrap = 한 줄로 늘어섬
+     Wrap-reverse = 한줄로 늘어선 아이템들 순서 뒤바뀜.
+     */
+}
+
+nav ul {
+  display: flex;
+  flex: 1 1 40rem;
+   /*
+      Flex-grow = 아이템 요소가 컨테이너 내부에 할당 가능한 공간의 정도를 선언, 
+      만약 형제 요소로 렌더링 된 모든 아이템 요소들이 동일한 값을 가지면 콘테이너 내부에서 동일한 공간을 할당 받는다. (소수점 가능)
+         1 = 
+         2 = 
+         3 = 각각 너비 (가로) 크기 차이
+  
+      Flex-shrink = 플랙스 창보다 플랙스 아이템 크기가 클 때 설정된 숫자의 값에 따라 아이템의 크기가 축소됨.
+         0 = 디폴트
+         1 = 너비를 맞춤
+         2 = 주변 아이템들과 높이를 맞춤
+  
+      Flex-basis = 플랙스 아이템의 초기 크기를 지정
+  
+      */
+  justify-content: space-around;
+  align-items: center;
+  list-style: none; /* 리스트 스타일 제거 */
+}
+#logo {
+  flex: 2 1 40rem;
+  font-family: "Pattaya", sans-serif; /* font 다운 */
+  font-weight: 400;
+}
+
+.hero {
+  min-height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.8), transparent),
+    url("./img/landing-page.jpg");
+    /* linear-graident -> 색을 상하 조정 (위, 아래) */
+  background-repeat: no-repeat;
+  /* 사진 크기가 넘어가면 연속으로 붙여서 보여주는 기능 끄기 */
+  background-size: cover; /* 사진 크기  */
+  background-position: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /*h2 h3 만 설정 됨.//
+    display: flex;
+    flex-direction: column; /* h2 h3 버튼 세가지 아이템이 세로 row로 정렬 -> 가로 정렬 */
+  justify-content: center;
+  align-items: center;
+  text-align: center; /* 텍스트 전체를 중앙으로 옮겨주자~~*/
+}
+.hero h3 {
+  padding: 5rem;
+}
+
+/* Locations SECTION */
+
+#locations {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    url("./img/new-york-page.png");
+    background-size: cover;
+    background-position: center ;
+  display: flex;
+  /* 여기서 flex 안 된 이유가 텍스트 태그는 같은 것으로 봐서 세로로 정렬하지 않는다. */
+  align-items: center;
+  position: relative; 
+  /* position absolute를 주기 위해 바디 바로 아래 부모 태그에게 준다. */
+  overflow: hidden; /* 화면 밖으로 벗어난 걸 숨겨버린다. 이 경우  */
+}
+
+.location-head{
+  width: 90%;
+  margin: auto;
+}
+
+.locations-head h2 {
+  padding: 1rem 0rem; /* 상하, 좌우 */
+  text-decoration: underline;
+  /* Optional 
+  text-decoration-thickness: 0.5rem;
+  */
+}
+ 
+.locations-head h3 {
+  padding: 4rem 0rem;
+  background: linear-gradient(rgba(143, 174, 177, 0.418), rgba(118, 65, 218, 0.664));
+  background-clip: text; /* 백그라운드에서 텍스트만 보여줘 */
+  -webkit-text-fill-color: transparent; /* 백그라운드 색을 텍스트에 적용해버리기 ~*/
+  /* 브라우저가 지원하지 않는 경우가 있음 이 경우 그럼 ㅠㅠ
+  나중 csaa에서 해결해주나 어쩃든 현재 크롬과 브레읍 에서는 지원이 안 됨 -> 사파리에서 해보자. */ 
+}
+
+.cloud {
+  position: absolute; 
+  /* 포지션 앱솔루트 + 부모 포지션 relative 하지 않을 시  -> 바디 전체로 감
+  하지만 부모에 relative 시 부모를 기준으로 움직임*/
+  top: 0%;
+  right: 0%;
+  
+}
+ 
+.moving-cloud-1{
+  animation: cloudAnimation 3s infinite alternate ease-in-out;
+  /* 시간차를 주면 다르게 돌아가는 것처럼 보인다. */ 
+}
+
+.moving-cloud-2{
+  top: 20%;
+  z-index: -1; 
+  /* 3차원 postive 레이어 위로, negative 레이어 뒤로 뻄 */
+  opacity: 0.5;
+  animation: cloudAnimation 3.5s infinite alternate ease-in-out;
+  /* alternate = 앞 뒤로 움직임 */
+  /* forward = 맨 뒤 변화만 보여줘라 */
+  /* animation-iteration-count: 3; -> infinite 대신 대체용 속성으로 3번 만 해라 */
+  /* animation-iteration-count: 3; -> infinite 대신 대체용 속성 */
+}
+
+/* Cloud Animation */
+@keyframes cloudAnimation {
+  from {
+    transform: translate(10%, -10%);
+    /* x 축 -> 10% 오른쪽 y 축 -> 위로 (마이너스인데???)*/
+  }
+  to {
+    transform: translate(0%, 0%); /* 원래데로 들어가자. */
+  }
+}
+
+/* Benifits selction */
+.benefits-head {
+  background: #343c44;
+  padding: 3rem;
+  min-height: 30vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+}
+
+.benefits-head h3 {
+  padding: 1rem;
+}
+
+.cards {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  min-height: 70vh;
+  align-items: center;
+  flex-wrap: wrap; /* */
+}
+
+.card {
+  text-align: center;
+  flex: 1 1 25rem;
+  min-height: 40vh;
+  margin: 2rem 5rem;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1), 0px 20px 20px rgba(0, 0, 0, 0.1);
+  /* x value, y value, blur value, color (앞 쉐도우), 뒤 쉐도우 두개를 합치면 더 좋아짐.   */
+}
+
+.cards img {
+  max-width: 15%;
+  margin: 2rem;
+}
+.card h4,
+.card p {
+  padding: 1rem;
+  line-height: 1.8;
+  /* 텍스트 각 줄 높이 조절 속성 */
+}
+
+.card-icon {
+  background: #27394e;
+}
+
+/* Contact Section */
+#contact {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), transparent),
+    url("img/contact-mountain.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  background: rgba(19, 28, 39, 0.8);
+  width: 60%;
+  color: white;
+  border-radius: 20px;
+}
+
+
+.form-head {
+  text-align: center;
+  padding: 4rem;
+}
+.name-form,
+.email-form {
+  padding: 3rem;
+  text-align: center;
+}
+
+.form-wrapper label {
+  margin: 0rem 3rem;
+}
+
+.form-wrapper button {
+  width: 100%;
+  padding: 2rem;
+  margin-top: 8rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+
+.form-wrapper input {
+  padding: 1rem 3rem;
+}
+
+/* Footer Section */
+footer {
+  color: white;
+  background: rgba(19, 28, 39, 1);
+}
+.footer-wrapper {
+  display: flex;
+  padding: 2rem;
+  width: 90%;
+  margin: auto;
+  align-items: center;
+  min-height: 10vh;
+  flex-wrap: wrap;
+}
+footer h5 {
+  flex: 1 1 40rem;
+}
+footer ul {
+  display: flex;
+  list-style: none;
+  flex: 1 1 40rem;
+  justify-content: space-between;
+  align-items: center;
+}
+/* Button focus to make website accessible */
+button:focus {
+  background: #2c3f57;
+  outline-style: solid;
+  outline-color: cornflowerblue;
+}
+
+
+/* Media Query */
+@media screen and (max-width: 932px) {
+  html {
+    font-size: 45%;
+  }
+  nav {
+    text-align: center;
+  }
+  #logo {
+    padding: 2rem;
+  }
+  .cloud {
+    height: 40rem;
+    pointer-events: none;
+    /* 그림을 끌어 올 수 없다. */
+  }
+  .moving-cloud-1 {
+    z-index: -1;
+  }
+  .moving-cloud-2 {
+    z-index: -2;
+  }
+
+  .locations-head h3 {
+    background: rgba(19, 28, 39, 0.9);
+    -webkit-text-fill-color: white;
+    /* 텍스트칼러를 .... */ 
+  }
+/*  
+background-size: cover;
+background-position: center;
+display: flex;
+align-items: center;
+*/
+  /*
+  
+
+  .form-wrapper {
+    width: 100%;
+  }
+  footer {
+    text-align: center;
+  }
+  footer h5 {
+    padding-bottom: 3rem;
+  }
+}
+*/
